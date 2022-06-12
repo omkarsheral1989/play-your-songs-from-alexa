@@ -1,0 +1,103 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my music",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "SingIntent",
+          "slots": [
+            {
+              "name": "songNumber",
+              "type": "AMAZON.NUMBER"
+            },
+            {
+              "name": "songTaggg",
+              "type": "songTags"
+            },
+            {
+              "name": "songTag",
+              "type": "songTags"
+            },
+            {
+              "name": "songTagg",
+              "type": "songTags"
+            }
+          ],
+          "samples": [
+            "play song number {songNumber}",
+            "play {songNumber}",
+            "play",
+            "sing"
+          ]
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "TestIntent",
+          "slots": [],
+          "samples": [
+            "test"
+          ]
+        }
+      ],
+      "types": [
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "SingIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "songNumber",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+    ]
+  },
+  "version": "19"
+}
