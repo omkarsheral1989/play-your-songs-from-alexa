@@ -1,14 +1,13 @@
 #!/bin/bash -el
 set -e
 
-OUTPUT_DIR="lambda"
 
-rm -rf ./$OUTPUT_DIR
+rm -rf $OUTPUT_DIR
 mkdir $OUTPUT_DIR
 
-yarn tsc
+yarn tsc --outDir $OUTPUT_DIR
 
-cp ./package.json ./$OUTPUT_DIR/
-cp ./yarn.lock ./$OUTPUT_DIR/
+cp ./package.json $OUTPUT_DIR/
+cp ./yarn.lock $OUTPUT_DIR/
 
 
