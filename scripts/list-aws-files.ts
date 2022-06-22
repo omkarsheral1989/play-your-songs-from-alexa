@@ -1,19 +1,21 @@
-import AWS from "aws-sdk";
+import * as AWS from "aws-sdk";
+// @ts-ignore
 import config from "./aws-credentials.json";
 import {ISong} from "../src/types/song-types";
 import * as fs from "fs";
 
+const outFileName = "src/data/songs-list.json";
+
 AWS.config.update({
   accessKeyId: config.accessKeyId,
   secretAccessKey: config.secretAccessKey,
-  region: config.region,
 });
 
 const s3 = new AWS.S3({apiVersion: "2006-03-01"});
 
-const baseUrl = "https://oxyrichguy4u-songs.s3.ap-south-1.amazonaws.com/";
+const baseUrl = config.bucketBaseUrl;
 
-s3.listObjects({Bucket: "oxyrichguy4u-songs"}, (err, data) => {
+s3.listObjects({Bucket: config.bucket}, (err, data) => {
   if (err) {
     console.log("Error", err);
   } else {
@@ -36,7 +38,7 @@ s3.listObjects({Bucket: "oxyrichguy4u-songs"}, (err, data) => {
         return song;
       });
     console.log(songs);
-    const outFileName = "src/data/songs-list.json";
+
     fs.writeFileSync(outFileName, JSON.stringify(songs));
     console.log(`written to file ${outFileName}`);
   }

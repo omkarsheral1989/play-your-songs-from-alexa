@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "bash ./scripts/build.sh",
-    "get-skill-package": "rm -rf ./skill-package &&  ask smapi export-package -s $SKILL_ID --stage development"
+    "get-skill-package": "rm -rf ./skill-package &&  ask smapi export-package -s $SKILL_ID --stage development",
+    "list-aws-files": "ts-node ./scripts/list-aws-files.ts"
   },
   "author": "Amazon Alexa",
   "license": "MIT",
